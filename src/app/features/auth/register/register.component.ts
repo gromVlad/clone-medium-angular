@@ -2,21 +2,31 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IAppState } from 'src/app/shared/model/appState.model';
+import { isSubmittingSelector } from '../store/selectors';
+import { registerAction } from '../store/actions';
+import { IRegisterRequest } from '../model/registerRequest.model';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
+  isSubmitting$!: Observable<boolean>;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private store: Store<IAppState>) {}
 
   ngOnInit(): void {
     this.initializeForm();
+    this.initializeValues();
   }
 
   initializeForm(): void {
@@ -28,7 +38,16 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  initializeValues(): void {
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+  }
+
   onSubmit(): void {
-    console.log('submit', this.form.value, this.form.valid);
+    const request: IRegisterRequest = {
+      user: this.form.value,
+    };
+    console.log(this.form.value);
+
+    this.store.dispatch(registerAction({ request }));
   }
 }
