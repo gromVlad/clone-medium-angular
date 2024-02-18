@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="form-container">
+    <h1 class="form-title">Sign Up</h1>
+    <p class="form-link">
+      <a [routerLink]="['/login']">Have an account?</a>
+    </p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          formControlName="username"
+        />
+        <div *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)" class="form-error">
+          <div *ngIf="form.controls['username'].errors?.['required']">
+            Username is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="form-error">
+          <div *ngIf="form.controls['email'].errors?.['required']">
+            Email is required.
+          </div>
+          <div *ngIf="form.controls['email'].errors?.['email']">
+            Email is not valid.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" class="form-error">
+          <div *ngIf="form.controls['password'].errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="form.controls['password'].errors?.['minlength']">
+            Password must be at least 6 characters long.
+          </div>
+        </div>
+      </div>
+      <button class="form-button" type="submit">
+        Sign up
+      </button>
+    </form>
+  </div>
+</div>
