@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { RegisterComponent } from './features/auth/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
 import { TopBarComponent } from './core/top-bar/top-bar.component';
+import { getCurrentUserAction } from './features/auth/store/actions/getCurrentUser.action';
+import { Store } from '@ngrx/store';
+import { IAppState } from './shared/model/appState.model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,11 @@ import { TopBarComponent } from './core/top-bar/top-bar.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'clone-medium-angular';
+  constructor(private store: Store<IAppState>) {}
+
+  ngOnInit(): void {
+    this.store.dispatch(getCurrentUserAction());
+  }
 }

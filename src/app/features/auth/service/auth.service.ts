@@ -9,6 +9,7 @@ import { ILoginRequest } from '../model/loginRequest.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  
   getUser(response: IAuthResponse): ICurrentUser {
     return response.user;
   }
@@ -16,13 +17,18 @@ export class AuthService {
 
   register(data: IRegisterRequest): Observable<ICurrentUser> {
     const url = environment.apiUrl + '/users';
-    return this.http
-      .post<IAuthResponse>(url, data)
-      .pipe(map((this.getUser)));
+    return this.http.post<IAuthResponse>(url, data).pipe(map(this.getUser));
   }
 
   login(data: ILoginRequest): Observable<ICurrentUser> {
     const url = environment.apiUrl + '/users/login';
     return this.http.post<IAuthResponse>(url, data).pipe(map(this.getUser));
+  }
+
+  getCurrentUser(): Observable<ICurrentUser> {
+    const url = environment.apiUrl + '/user';
+    return this.http
+      .get<IAuthResponse>(url)
+      .pipe(map((response) => response.user));
   }
 }
