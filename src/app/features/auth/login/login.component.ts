@@ -6,20 +6,25 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IAppState } from 'src/app/shared/model/appState.model';
 import { isSubmittingSelector, validationErrorsSelector } from '../store/selectors';
-import { registerAction } from '../store/actions/actionsRegister';
 import { IRegisterRequest } from '../model/registerRequest.model';
 import { IBackendErrors } from 'src/app/shared/model/backendErrors.model';
 import { BackendErrorMessagesComponent } from 'src/app/shared/components/backend-error-messages/backend-error-messages.component';
+import { loginAction } from '../store/actions/actionslogin';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule,BackendErrorMessagesComponent],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    BackendErrorMessagesComponent,
+  ],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
 })
-export class RegisterComponent implements OnInit {
+export class loginComponent implements OnInit {
   form!: FormGroup;
   isSubmitting$!: Observable<boolean>;
   backendErrors$!: Observable<IBackendErrors | null>;
@@ -32,9 +37,8 @@ export class RegisterComponent implements OnInit {
   }
 
   initializeForm(): void {
-    console.log('initializeForm');
+    console.log('loginForm');
     this.form = this.fb.group({
-      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -51,6 +55,6 @@ export class RegisterComponent implements OnInit {
     };
     console.log(this.form.value);
 
-    this.store.dispatch(registerAction({ request }));
+    this.store.dispatch(loginAction({ request }));
   }
 }

@@ -5,9 +5,9 @@ import {
   registerAction,
   registerFailureAction,
   registerSuccessAction,
-} from './actions';
+} from '../actions/actionsRegister';
 import { ICurrentUser } from 'src/app/shared/model/currentUser.model';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../../service/auth.service';
 import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PersistanceService } from 'src/app/shared/service/persistance.service';

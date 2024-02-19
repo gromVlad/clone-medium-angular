@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import { ActionTypes } from "./actionTypes";
-import { IRegisterRequest } from "../model/registerRequest.model";
+import { ActionTypes } from "../actionTypes";
+import { IRegisterRequest } from "../../model/registerRequest.model";
 import { ICurrentUser } from "src/app/shared/model/currentUser.model";
 import { IBackendErrors } from "src/app/shared/model/backendErrors.model";
 
