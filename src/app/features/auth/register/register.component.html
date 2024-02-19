@@ -1,3 +1,5 @@
+<app-backend-error-messages *ngIf="backendErrors$ | async as backendError"
+          [backendErrors]="backendError "></app-backend-error-messages>
 <div class="container">
   <div class="form-container">
     <h1 class="form-title">Sign Up</h1>
@@ -50,7 +52,7 @@
           </div>
         </div>
       </div>
-      <button class="form-button" type="submit">
+      <button class="form-button" type="submit" ><!-- [disabled]="form.invalid" -->
         Sign up
       </button>
     </form>

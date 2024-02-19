@@ -5,7 +5,7 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { authReducer } from './features/auth/store/reducers';
 import { provideEffects } from '@ngrx/effects';
-import { RegisterEffect } from './features/auth/store/effects/register.effect';
+import { RegisterEffect } from './features/auth/store/register.effect';
 import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {

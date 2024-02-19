@@ -1,0 +1,29 @@
+.error-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 20px;
+  min-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: slide-in-out 1.2s ease-in-out;
+}
+
+.error-message {
+  padding: 10px;
+  margin: 10px;
+  background-color: #d9534f;
+  color: #fff;
+  border-radius: 5px;
+}
+
+@keyframes slide-in-out {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

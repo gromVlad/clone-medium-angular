@@ -2,6 +2,7 @@ import { createAction, props } from "@ngrx/store";
 import { ActionTypes } from "./actionTypes";
 import { IRegisterRequest } from "../model/registerRequest.model";
 import { ICurrentUser } from "src/app/shared/model/currentUser.model";
+import { IBackendErrors } from "src/app/shared/model/backendErrors.model";
 
 export const registerAction = createAction(
   ActionTypes.REGISTER,
@@ -13,4 +14,7 @@ export const registerSuccessAction = createAction(
   props<{ currentUser: ICurrentUser }>()
 );
 
-export const registerFailureAction = createAction(ActionTypes.REGISTER_FAILURE);
+export const registerFailureAction = createAction(
+  ActionTypes.REGISTER_FAILURE,
+  props<{ errors: IBackendErrors }>()
+);
