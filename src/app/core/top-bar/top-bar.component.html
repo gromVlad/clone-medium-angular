@@ -1,0 +1,56 @@
+<nav class="header">
+  <div class="header-logo">
+    <div class="img">
+    <img src="assets/home_logo.svg"/>
+    <a [routerLink]="['/']"> medium </a>
+    </div>
+  </div>
+  <ul class="header-menu">
+    <li>
+      <a [routerLink]="['/']">
+        <div class="img">
+        <img src="assets/home.svg"/>
+        &nbsp;Home
+        </div>
+      </a>
+    </li>
+    <ng-container *ngIf="isLoggedIn$ | async"
+      >
+      <li>
+        <a [routerLink]="['/articles/new']">
+          <div class="img">
+          <img src="assets/open_in_new.svg"  />
+          &nbsp; New Post
+          </div>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/settings']">
+          <div class="img">
+          <img src="assets/settings.svg" />
+          &nbsp; Settings
+          </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          [routerLink]="['/profiles', (currentUser$ | async)?.username]"
+          class="nav-link"
+        >
+          <div class="img">
+            <img class="nav-avatar" [src]="(currentUser$ | async)?.image" />
+            &nbsp; {{ (currentUser$ | async)?.username }}
+          </div>
+        </a>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="isAnonymous$ | async">
+      <li>
+        <a [routerLink]="['/login']"> Sign in </a>
+      </li>
+      <li>
+        <a [routerLink]="['/register']"> Sign up </a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>
