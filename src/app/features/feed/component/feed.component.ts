@@ -7,11 +7,13 @@ import { errorSelector, feedSelector, isLoadingSelector } from '../store/selecto
 import { getFeedAction } from '../store/actions/getFeed.action';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ErrorMessageComponent } from 'src/app/shared/components/error-message/error-message.component';
+import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
 
 @Component({
   selector: 'app-feed',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,ErrorMessageComponent,LoadingComponent],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
