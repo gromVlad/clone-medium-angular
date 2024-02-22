@@ -15,7 +15,7 @@ import { isLoggedInSelector } from 'src/app/features/auth/store/selectors';
 export class FeedTogglerComponent implements OnInit {
   private store = inject(Store);
 
-  @Input('tagName') tagNameProps!: string;
+  @Input('tagName') tagNameProps!: string | null;
 
   isLoggedIn$!: Observable<boolean | null>;
 

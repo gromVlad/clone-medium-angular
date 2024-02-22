@@ -1,4 +1,4 @@
-import { OnDestroy, OnInit, inject } from '@angular/core';
+import { OnChanges, OnDestroy, OnInit, SimpleChanges, inject } from '@angular/core';
 import { Component, Input } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { IGetFeedResponse } from '../model/getFeedResponse.model';
@@ -28,7 +28,7 @@ import { TagListComponent } from 'src/app/shared/components/tag-list/tag-list.co
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
-export class FeedComponent implements OnInit,OnDestroy {
+export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   private store = inject(Store);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
@@ -48,6 +48,16 @@ export class FeedComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.initializeValues();
     this.initializeListeners();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const apiChange =
+      !changes['apiUrlProps'].firstChange &&
+      changes['apiUrlProps'].currentValue !==
+        changes['apiUrlProps'].previousValue;
+    if (apiChange){
+      this.fetchFeed();
+    }
   }
 
   initializeValues(): void {
