@@ -9,20 +9,21 @@ import { RegisterEffect } from './features/auth/store/effects/register.effect';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { LoginEffect } from './features/auth/store/effects/login.effect';
 import { GetCurrentUserEffect } from './features/auth/store/effects/getCurrentUser.effect';
-import { AuthInterceptor } from './core/top-bar/interceptors/authinterceptor';
+import { AuthInterceptor } from './core/interceptors/authinterceptor';
+import { feedReducer } from './features/feed/store/reducers';
+import { GetFeedEffect } from './features/feed/store/effects/getFeed.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideStore({ auth: authReducer }),
+    provideStore({ auth: authReducer, feed: feedReducer }),
     provideStoreDevtools({ maxAge: 20, logOnly: !isDevMode() }),
-    provideEffects(RegisterEffect, LoginEffect, GetCurrentUserEffect),
+    provideEffects(
+      RegisterEffect,
+      LoginEffect,
+      GetCurrentUserEffect,
+      GetFeedEffect
+    ),
     provideHttpClient(withInterceptors([AuthInterceptor])),
   ],
 };
-
-// {
-//       provide: HTTP_INTERCEPTORS,
-//       useClass: AuthInterceptor,
-//       multi: true,
-//     },

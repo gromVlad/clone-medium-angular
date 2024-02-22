@@ -2,6 +2,13 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    loadComponent: () =>
+      import('./features/globalfeed/globalfeed.component').then(
+        (m) => m.GlobalfeedComponent
+      ),
+  },
+  {
     path: 'register',
     loadComponent: () =>
       import('./features/auth/register/register.component').then(
