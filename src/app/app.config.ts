@@ -12,11 +12,16 @@ import { GetCurrentUserEffect } from './features/auth/store/effects/getCurrentUs
 import { AuthInterceptor } from './core/interceptors/authinterceptor';
 import { feedReducer } from './features/feed/store/reducers';
 import { GetFeedEffect } from './features/feed/store/effects/getFeed.effect';
+import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideStore({ auth: authReducer, feed: feedReducer }),
+    provideStore({
+      auth: authReducer,
+      feed: feedReducer,
+      router: routerReducer,
+    }),
     provideStoreDevtools({ maxAge: 20, logOnly: !isDevMode() }),
     provideEffects(
       RegisterEffect,
@@ -25,5 +30,6 @@ export const appConfig: ApplicationConfig = {
       GetFeedEffect
     ),
     provideHttpClient(withInterceptors([AuthInterceptor])),
+    provideRouterStore(),
   ],
 };
