@@ -8,4 +8,6 @@ import { FeedComponent } from '../feed/component/feed.component';
   templateUrl: './globalfeed.component.html',
   styleUrl: './globalfeed.component.scss',
 })
-export class GlobalfeedComponent {}
+export class GlobalfeedComponent {
+  apiUrl = '/articles';
+}
