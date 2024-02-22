@@ -12,6 +12,7 @@ import { LoadingComponent } from 'src/app/shared/components/loading/loading.comp
 import { environment } from 'src/environments/environment';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
 import { UtilsService } from 'src/app/shared/utils/utils.service';
+import { TagListComponent } from 'src/app/shared/components/tag-list/tag-list.component';
 
 @Component({
   selector: 'app-feed',
@@ -22,6 +23,7 @@ import { UtilsService } from 'src/app/shared/utils/utils.service';
     ErrorMessageComponent,
     LoadingComponent,
     PaginationComponent,
+    TagListComponent,
   ],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',

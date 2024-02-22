@@ -3,12 +3,6 @@
 <app-error-message *ngIf="error$ | async">Some error happened...</app-error-message>
 
 <div *ngIf="feed$ | async ">
-  <app-pagination
-    [total]="(feed$ | async)?.articlesCount || 1"
-    [limit]="limit"
-    [url]="baseUrl"
-    [currentPage]="currentPage"
-  ></app-pagination>
   <div
     class="article-preview"
     *ngFor="let article of (feed$ | async)?.articles"
@@ -31,7 +25,7 @@
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>
       <span>Read more..</span>
-      HERE LIST OF TAGS
+      <app-tag-list [tags]="article.tagList"></app-tag-list>
     </a>
   </div>
   <app-pagination
