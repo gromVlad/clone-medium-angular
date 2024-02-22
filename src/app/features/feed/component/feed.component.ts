@@ -1,4 +1,4 @@
-import { OnDestroy, inject } from '@angular/core';
+import { OnDestroy, OnInit, inject } from '@angular/core';
 import { Component, Input } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { IGetFeedResponse } from '../model/getFeedResponse.model';
@@ -28,7 +28,7 @@ import { TagListComponent } from 'src/app/shared/components/tag-list/tag-list.co
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
-export class FeedComponent implements OnDestroy {
+export class FeedComponent implements OnInit,OnDestroy {
   private store = inject(Store);
   private router = inject(Router);
   private route = inject(ActivatedRoute);

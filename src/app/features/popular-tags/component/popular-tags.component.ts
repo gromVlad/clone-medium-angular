@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { getPopularTagsAction } from '../store/actions/getPopularTags.action';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './popular-tags.component.html',
   styleUrl: './popular-tags.component.scss',
 })
-export class PopularTagsComponent {
+export class PopularTagsComponent implements OnInit {
   private store = inject(Store);
 
   popularTags$!: Observable<string[] | null>;
