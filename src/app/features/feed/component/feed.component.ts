@@ -44,6 +44,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   baseUrl!: string;
   queryParamsSubscription!: Subscription;
   currentPage!: number;
+  wordMaxLenght = "..."
 
   ngOnInit(): void {
     this.initializeValues();

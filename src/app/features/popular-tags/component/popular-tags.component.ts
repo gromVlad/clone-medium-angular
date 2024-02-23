@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
 import { getPopularTagsAction } from '../store/actions/getPopularTags.action';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
@@ -11,7 +11,12 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-popular-tags',
   standalone: true,
-  imports: [CommonModule,RouterModule, ErrorMessageComponent, LoadingComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ErrorMessageComponent,
+    LoadingComponent,
+  ],
   templateUrl: './popular-tags.component.html',
   styleUrl: './popular-tags.component.scss',
 })

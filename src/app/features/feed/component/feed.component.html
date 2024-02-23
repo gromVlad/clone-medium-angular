@@ -1,30 +1,39 @@
-<app-loading *ngIf="isLoading$ | async">Loading...</app-loading>
+<app-loading *ngIf="isLoading$ | async" class="loading">Loading...</app-loading>
 
-<app-error-message *ngIf="error$ | async">Some error happened...</app-error-message>
+<app-error-message *ngIf="error$ | async" class="error"
+  >Some error happened...</app-error-message
+>
+<div *ngIf="(feed$ | async)?.articles?.length === 0">
+  <h2>Feed empty</h2>
+</div>
 
-<div *ngIf="feed$ | async ">
+<div *ngIf="feed$ | async">
   <div
-    class="article-preview"
+    class="article-container"
     *ngFor="let article of (feed$ | async)?.articles"
   >
-    <div class="article-meta">
+    <div class="author-container">
       <a [routerLink]="['/profiles', article.author.username]">
         <img [src]="article.author.image" />
       </a>
-      <div class="info">
+      <div class="author-info">
         <a [routerLink]="['/profiles', article.author.username]" class="author">
           {{ article.author.username }}
         </a>
-        <span class="date">{{ article.createdAt }}</span>
+        <span class="created-at">{{
+          article.createdAt | date : "MMM d, yyyy"
+        }}</span>
       </div>
-      <div class="pull-xs-right">
-        ADD TO FAVORITES
-      </div>
+      <div class="add-favorites">ADD TO FAVORITES</div>
     </div>
-    <a [routerLink]="['/aricles', article.slug]" class="preview-link">
-      <h1>{{ article.title }}</h1>
-      <p>{{ article.description }}</p>
-      <span>Read more..</span>
+    <a [routerLink]="['/articles', article.slug]" class="article-link">
+      <h1>
+        {{ article.title.slice(0, 120)
+        }}{{ article.title.length > 120 ? wordMaxLenght : "" }}
+      </h1>
+      <p>{{ article.description.slice(0, 300) }}
+        {{ article.description.length > 300 ? wordMaxLenght : "" }}</p>
+      <span class="read-more">Read more..</span>
       <app-tag-list [tags]="article.tagList"></app-tag-list>
     </a>
   </div>
