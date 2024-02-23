@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
 import { UtilsService } from 'src/app/shared/utils/utils.service';
 import { TagListComponent } from 'src/app/shared/components/tag-list/tag-list.component';
+import { getPopularTagsAction } from '../../popular-tags/store/actions/getPopularTags.action';
 
 @Component({
   selector: 'app-feed',
@@ -87,6 +88,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
     });
     const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`;
     this.store.dispatch(getFeedAction({ url: apiUrlWithParams }));
+    this.store.dispatch(getPopularTagsAction());
   }
 
   ngOnDestroy(): void {

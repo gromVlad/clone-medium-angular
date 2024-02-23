@@ -6,7 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { errorSelector, isLoadingSelector, popularTagsSelector } from '../store/selectors';
 import { ErrorMessageComponent } from 'src/app/shared/components/error-message/error-message.component';
 import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-popular-tags',
