@@ -1,31 +1,25 @@
-<div class="feed-toggle">
-  <ul class="nav nav-pills outline-active">
-    <li class="nav-item" *ngIf="isLoggedIn$ | async">
-      <a [routerLink]="['/feed']" class="nav-link" routerLinkActive="active"
-        >Your feed</a
-      >
-    </li>
-
-    <li class="nav-item">
-      <a
-        [routerLink]="['/']"
-        class="nav-link"
-        routerLinkActive="active"
-        routerLinkActiveOptions="{exact:true}"
-        >Global feed</a
-      >
-    </li>
-
-    <li class="nav-item" *ngIf="tagNameProps">
-      <a
-        [routerLink]="['/tags', tagNameProps]"
-        class="nav-link"
-        routerLinkActive="active"
-        routerLinkActiveOptions="{exact:true, __hack__:tagNameProps}"
-      >
-        <i class="ion-pound"></i>
-        {{ tagNameProps }}
-      </a>
-    </li>
-  </ul>
+<div>
+  <a
+    routerLink="/feed"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Feed
+  </a>
+  <a
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Global Feed
+  </a>
+  <a
+    [routerLink]="['/tags', tagNameProps]"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    *ngIf="tagNameProps"
+  >
+    #{{ tagNameProps }}
+  </a>
 </div>
+<!-- routerLinkActiveOptions="{exact:true, __hack__:tagNameProps} -->

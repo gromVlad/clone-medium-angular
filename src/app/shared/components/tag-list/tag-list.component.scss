@@ -1,0 +1,22 @@
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.tag-item {
+  background-color: #595959;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tag-item:hover {
+  background-color: #333;
+}

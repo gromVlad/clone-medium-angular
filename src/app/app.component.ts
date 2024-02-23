@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopBarComponent } from './core/top-bar/top-bar.component';
 import { getCurrentUserAction } from './features/auth/store/actions/getCurrentUser.action';
@@ -11,6 +11,7 @@ import { IAppState } from './shared/model/appState.model';
   imports: [RouterOutlet, TopBarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
   title = 'clone-medium-angular';

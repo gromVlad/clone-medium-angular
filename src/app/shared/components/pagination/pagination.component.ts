@@ -23,6 +23,11 @@ export class PaginationComponent implements OnInit {
 
   ngOnInit(): void {
     this.pagesCount = Math.ceil(this.totalProps / this.limitProps);
-    this.pages = this.utilsService.range(1, this.pagesCount);
+    const allPages = this.utilsService.range(1, this.pagesCount)
+    this.pages = allPages.slice(
+      this.currentPageProps > 4 ? this.currentPageProps - 3 : 0,
+      this.currentPageProps > 4 ? this.currentPageProps +3 : 6
+    );
+
   }
 }

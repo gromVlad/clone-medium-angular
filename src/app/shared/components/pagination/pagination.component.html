@@ -1,11 +1,17 @@
 <ul class="pagination">
-  <li
-    *ngFor="let page of pages"
-    class="page-item"
-    [ngClass]="{active: currentPageProps === page}"
-  >
-    <a [routerLink]="[urlProps]" [queryParams]="{page: page}" class="page-link">
+  <li class="page-item" [ngClass]="{ disabled: currentPageProps === 1 }">
+    <a [routerLink]="[urlProps]" [queryParams]="{ page: currentPageProps - 1 }" class="page-link">
+      &laquo; Prev
+    </a>
+  </li>
+  <li *ngFor="let page of pages" class="page-item" [ngClass]="{ active: currentPageProps === page }">
+    <a [routerLink]="[urlProps]" [queryParams]="{ page: page }" class="page-link">
       {{ page }}
+    </a>
+  </li>
+  <li class="page-item" [ngClass]="{ disabled: currentPageProps === pagesCount }">
+    <a [routerLink]="[urlProps]" [queryParams]="{ page: currentPageProps + 1 }" class="page-link">
+      Next &raquo;
     </a>
   </li>
 </ul>

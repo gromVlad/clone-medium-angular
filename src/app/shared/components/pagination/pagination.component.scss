@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.page-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.page-item:last-child {
+  margin-right: 0 5px;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.page-link:hover {
+  background-color: #dfd8d8;
+}
+
+.active .page-link {
+  background-color: #333;
+  color: #fff;
+}
+
+.disabled .page-link {
+  color: #ccc;
+}
+
