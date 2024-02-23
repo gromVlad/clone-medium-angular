@@ -1,5 +1,7 @@
-<div class="tag-list">
-  <div *ngFor="let tag of tagsProps" class="tag-item">
-    <p>#{{ tag }}</p>
-  </div>
+<div >
+  <a *ngFor="let tag of tagsProps" class="tag-item" [routerLink]="['/tags', tag]"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
+    #{{ tag }}
+  </a>
 </div>

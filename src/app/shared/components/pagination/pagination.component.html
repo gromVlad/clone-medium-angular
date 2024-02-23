@@ -1,4 +1,4 @@
-<ul class="pagination">
+<ul class="pagination" *ngIf="pages.length > 1 ">
   <li class="page-item" [ngClass]="{ disabled: currentPageProps === 1 }">
     <a [routerLink]="[urlProps]" [queryParams]="{ page: currentPageProps - 1 }" class="page-link">
       &laquo; Prev
