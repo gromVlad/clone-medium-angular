@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FeedComponent } from '../feed/component/feed.component';
 import { BannerComponent } from 'src/app/core/banner/banner.component';
 import { PopularTagsComponent } from '../popular-tags/component/popular-tags.component';

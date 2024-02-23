@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { isLoggedInSelector } from 'src/app/features/auth/store/selectors';
@@ -16,7 +16,6 @@ export class FeedTogglerComponent implements OnInit {
   private store = inject(Store);
 
   @Input('tagName') tagNameProps!: string | null;
-
   isLoggedIn$!: Observable<boolean | null>;
 
   ngOnInit(): void {
@@ -26,4 +25,6 @@ export class FeedTogglerComponent implements OnInit {
   initializeValues(): void {
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
   }
+
+ 
 }

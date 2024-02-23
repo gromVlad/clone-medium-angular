@@ -9,6 +9,7 @@
   <a
     routerLink="/"
     routerLinkActive="active"
+    [queryParamsHandling]="'merge'"
     [routerLinkActiveOptions]="{ exact: true}"
   >
     Global Feed
@@ -16,10 +17,10 @@
   <a
     [routerLink]="['/tags', tagNameProps]"
     routerLinkActive="active"
+    [queryParamsHandling]="'merge'"
     [routerLinkActiveOptions]="{ exact: true }"
     *ngIf="tagNameProps"
   >
     #{{ tagNameProps }}
   </a>
 </div>
-<!-- routerLinkActiveOptions="{exact:true, __hack__:tagNameProps} -->
