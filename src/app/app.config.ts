@@ -15,6 +15,8 @@ import { GetFeedEffect } from './features/feed/store/effects/getFeed.effect';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { GetPopularTagsEffect } from './features/popular-tags/store/effects/getPopularTags.effect';
 import { popularTagsReducer } from './features/popular-tags/store/reducers';
+import { articleReducer } from './features/article/store/reducers';
+import { GetArticleEffect } from './features/article/store/effects/getArticle.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +26,7 @@ export const appConfig: ApplicationConfig = {
       feed: feedReducer,
       popularTags: popularTagsReducer,
       router: routerReducer,
+      article: articleReducer,
     }),
     provideStoreDevtools({ maxAge: 20, logOnly: !isDevMode() }),
     provideEffects(
@@ -31,7 +34,8 @@ export const appConfig: ApplicationConfig = {
       LoginEffect,
       GetCurrentUserEffect,
       GetFeedEffect,
-      GetPopularTagsEffect
+      GetPopularTagsEffect,
+      GetArticleEffect
     ),
     provideHttpClient(withInterceptors([AuthInterceptor])),
     provideRouterStore(),

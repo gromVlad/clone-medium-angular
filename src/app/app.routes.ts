@@ -2,6 +2,13 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'articles/:slug',
+    loadComponent: () =>
+      import('./features/article/component/article.component').then(
+        (m) => m.ArticleComponent
+      ),
+  },
+  {
     path: 'tags/:slug',
     loadComponent: () =>
       import('./features/tag-feed/tag-feed.component').then(
