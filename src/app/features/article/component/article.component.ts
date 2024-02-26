@@ -11,6 +11,7 @@ import { getArticleAction } from '../store/actions/getArticle.action';
 import { ErrorMessageComponent } from 'src/app/shared/components/error-message/error-message.component';
 import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
 import { TagListComponent } from 'src/app/shared/components/tag-list/tag-list.component';
+import { deleteArticleAction } from '../store/actions/deleteArticle.action';
 
 @Component({
   selector: 'app-article',
@@ -73,5 +74,9 @@ export class ArticleComponent {
 
   fetchData(): void {
     this.store.dispatch(getArticleAction({ slug: this.slug! }));
+  }
+
+  deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({ slug: this.slug! }));
   }
 }

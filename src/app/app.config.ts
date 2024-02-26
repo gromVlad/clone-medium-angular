@@ -17,6 +17,7 @@ import { GetPopularTagsEffect } from './features/popular-tags/store/effects/getP
 import { popularTagsReducer } from './features/popular-tags/store/reducers';
 import { articleReducer } from './features/article/store/reducers';
 import { GetArticleEffect } from './features/article/store/effects/getArticle.effect';
+import { DeleteArticleEffect } from './features/article/store/effects/deleteArticle.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -35,7 +36,8 @@ export const appConfig: ApplicationConfig = {
       GetCurrentUserEffect,
       GetFeedEffect,
       GetPopularTagsEffect,
-      GetArticleEffect
+      GetArticleEffect,
+      DeleteArticleEffect
     ),
     provideHttpClient(withInterceptors([AuthInterceptor])),
     provideRouterStore(),
