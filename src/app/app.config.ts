@@ -18,6 +18,8 @@ import { popularTagsReducer } from './features/popular-tags/store/reducers';
 import { articleReducer } from './features/article/store/reducers';
 import { GetArticleEffect } from './features/article/store/effects/getArticle.effect';
 import { DeleteArticleEffect } from './features/article/store/effects/deleteArticle.effect';
+import { CreateArticleEffect } from './features/createArticle/store/effects/createArticle.effect';
+import { createArticleReducer } from './features/createArticle/store/reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,6 +30,7 @@ export const appConfig: ApplicationConfig = {
       popularTags: popularTagsReducer,
       router: routerReducer,
       article: articleReducer,
+      createArticle: createArticleReducer,
     }),
     provideStoreDevtools({ maxAge: 20, logOnly: !isDevMode() }),
     provideEffects(
@@ -37,7 +40,8 @@ export const appConfig: ApplicationConfig = {
       GetFeedEffect,
       GetPopularTagsEffect,
       GetArticleEffect,
-      DeleteArticleEffect
+      DeleteArticleEffect,
+      CreateArticleEffect
     ),
     provideHttpClient(withInterceptors([AuthInterceptor])),
     provideRouterStore(),
