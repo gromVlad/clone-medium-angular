@@ -1,48 +1,42 @@
-<div class="article-page">
-  <div class="banner">
-    <div class="container" *ngIf="article">
-      <h1>{{ article.title }}</h1>
-      <div class="article-meta">
+<div class="article-container">
+  <div class="article-header" *ngIf="article">
+    <h1>{{ article.title }}</h1>
+    <div class="author-info">
+      <a [routerLink]="['/profiles', article.author.username]">
+        <img [src]="article.author.image" />
+      </a>
+      <div class="author-details">
         <a [routerLink]="['/profiles', article.author.username]">
-          <img [src]="article.author.image" />
+          {{ article.author.username }}
         </a>
-        <div class="info">
-          <a [routerLink]="['/profiles', article.author.username]">
-            {{ article.author.username }}
-          </a>
-          <span class="date">
-            {{ article.createdAt }}
-          </span>
-        </div>
-        <span *ngIf="isAuthor$ | async">
-          <a
-            [routerLink]="['/articles', article.slug, '/edit']"
-            class="btn btn-outline-secondary btn-sm"
-          >
-            <i class="ion-edit"></i>
-            Edit Article
-          </a>
-          <button
-            class="btn btn-outline-danger btn-sm"
-            (click)="deleteArticle()"
-          >
-            Delete Article
-          </button>
-        </span>
+        <span class="created-at">{{
+          article.createdAt | date : "medium"
+        }}</span>
       </div>
     </div>
   </div>
-  <div class="container page">
-    <app-loading *ngIf="isLoading$ | async"></app-loading>
-    <app-error-message *ngIf="error$ | async"></app-error-message>
-
-    <div class="row article-content" *ngIf="article">
-      <div class="col-xs-12">
+  <div *ngIf="isAuthor$ | async">
+    <!--  <a [routerLink]="['/articles', article.slug, 'edit']" class="edit-link">
+          Edit Article
+        </a> -->
+    <button class="delete-button" (click)="deleteArticle()">
+      Delete Article
+    </button>
+  </div>
+  <div class="article-body" *ngIf="isLoading$ | async; else content">
+    <app-loading>Loading...</app-loading>
+  </div>
+  <ng-template #content>
+    <div class="article-body" *ngIf="error$ | async; else articleContent">
+      <app-error-message>Some error happened...</app-error-message>
+    </div>
+    <ng-template #articleContent>
+      <div class="article-body" *ngIf="article">
         <div>
           <p>{{ article.body }}</p>
         </div>
         <app-tag-list [tags]="article.tagList"></app-tag-list>
       </div>
-    </div>
-  </div>
+    </ng-template>
+  </ng-template>
 </div>

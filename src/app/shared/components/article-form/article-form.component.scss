@@ -1,0 +1,49 @@
+* {
+  border: none;
+}
+
+.container {
+  max-width: 100%;
+  padding: 3rem;
+  font-size: 20px;
+  border: none;
+}
+
+.field {
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 20px;
+}
+
+.textarea {
+  width: 100%;
+  height: 10rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
