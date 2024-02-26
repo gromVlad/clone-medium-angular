@@ -1,13 +1,15 @@
 .article-container {
   margin-bottom: 20px;
   padding: 20px;
+  margin: 5px;
   background-color: #f5f5f5;
+  border-radius: 15px;
 }
 
 .article-header {
   display: flex;
-  align-items: center;
   margin-bottom: 10px;
+  flex-direction:column;
 }
 
 h1 {

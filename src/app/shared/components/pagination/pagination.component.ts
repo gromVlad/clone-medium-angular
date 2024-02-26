@@ -26,7 +26,7 @@ export class PaginationComponent implements OnInit {
     const allPages = this.utilsService.range(1, this.pagesCount)
     this.pages = allPages.slice(
       this.currentPageProps > 4 ? this.currentPageProps - 3 : 0,
-      this.currentPageProps > 4 ? this.currentPageProps +3 : 6
+      this.currentPageProps > 4 ? this.currentPageProps + 3 : 6
     );
 
   }

@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  
 }
 
 .author-container img {
@@ -16,6 +17,7 @@
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
+  
 }
 
 .author-info {
@@ -45,6 +47,7 @@
 .article-link {
   text-decoration: none;
   color: #333;
+  font-size: 17px;
 }
 
 h1 {
@@ -62,11 +65,15 @@ p {
   font-size: 14px;
   text-decoration: underline;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .pagination-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+.app-tag-list {
+  margin-top: 5px;
 }

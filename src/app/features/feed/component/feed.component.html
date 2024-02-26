@@ -26,16 +26,16 @@
       </div>
       <div class="add-favorites">ADD TO FAVORITES</div>
     </div>
-    <a [routerLink]="['/articles', article.slug]" class="article-link">
+    <div  class="article-link">
       <h1>
         {{ article.title.slice(0, 120)
         }}{{ article.title.length > 120 ? wordMaxLenght : "" }}
       </h1>
       <p>{{ article.description.slice(0, 300) }}
         {{ article.description.length > 300 ? wordMaxLenght : "" }}</p>
-      <span class="read-more">Read more..</span>
+      <a [routerLink]="['/articles', article.slug]" class="read-more">Read more..</a>
       <app-tag-list [tags]="article.tagList"></app-tag-list>
-    </a>
+    </div>
   </div>
   <app-pagination
     [total]="(feed$ | async)?.articlesCount || 1"
