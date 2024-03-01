@@ -1,7 +1,4 @@
 .settings-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 
 .settings-form-fieldset {
@@ -54,6 +51,18 @@
 }
 
 .settings-form-logout-button {
+  background-color: #fff;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  font-size: 20px;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 3px 8px;
+}
+
+.settings-form-logout-button:hover {
   background-color: #dc3545;
   color: #fff;
 }
