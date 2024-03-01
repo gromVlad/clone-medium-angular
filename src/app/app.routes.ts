@@ -2,11 +2,18 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'settings',
+    loadComponent: () =>
+      import('./features/settings/component/settings.component').then(
+        (m) => m.SettingsComponent
+      ),
+  },
+  {
     path: 'articles/new',
     loadComponent: () =>
-      import('./features/createArticle/component/create-article.component').then(
-        (m) => m.CreateArticleComponent
-      ),
+      import(
+        './features/createArticle/component/create-article.component'
+      ).then((m) => m.CreateArticleComponent),
   },
   {
     path: 'articles/:slug',

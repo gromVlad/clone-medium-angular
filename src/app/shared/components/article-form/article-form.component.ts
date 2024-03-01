@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { IArticleInput } from '../../model/articleInput.interface';
+import { IArticleInput } from '../../model/articleInput.model';
 import { IBackendErrors } from '../../model/backendErrors.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { BackendErrorMessagesComponent } from '../backend-error-messages/backend-error-messages.component';

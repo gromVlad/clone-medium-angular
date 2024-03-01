@@ -6,10 +6,10 @@ import { IRegisterRequest } from '../model/registerRequest.model';
 import { IAuthResponse } from '../model/authResponse.model';
 import { HttpClient } from '@angular/common/http';
 import { ILoginRequest } from '../model/loginRequest.model';
+import { ICurrentUserInput } from 'src/app/shared/model/currentUserInput.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  
   getUser(response: IAuthResponse): ICurrentUser {
     return response.user;
   }
@@ -30,5 +30,13 @@ export class AuthService {
     return this.http
       .get<IAuthResponse>(url)
       .pipe(map((response) => response.user));
+  }
+
+  updateCurrentUser(
+    data: ICurrentUserInput
+  ): Observable<ICurrentUser> {
+
+    const url = environment.apiUrl + '/user';
+    return this.http.put<IAuthResponse>(url, data).pipe(map(this.getUser));
   }
 }

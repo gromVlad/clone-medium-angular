@@ -2,9 +2,9 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Observable, map } from "rxjs";
 import { IArticle } from "src/app/shared/model/article.model";
-import { IArticleInput } from "src/app/shared/model/articleInput.interface";
 import { environment } from "src/environments/environment";
 import { ISaveArticleResponse } from "../model/saveArticleResponse.model";
+import { IArticleInput } from "src/app/shared/model/articleInput.model";
 
 @Injectable({ providedIn: 'root' })
 export class CreateArticleService {

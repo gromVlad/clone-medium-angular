@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IArticleInput } from 'src/app/shared/model/articleInput.interface';
 import { IBackendErrors } from 'src/app/shared/model/backendErrors.model';
 import { isSubmittingSelector, validationErrorsSelector } from '../store/selectors';
 import { createArticleAction } from '../store/actions/createArticle.action';
 import { ArticleFormComponent } from 'src/app/shared/components/article-form/article-form.component';
+import { IArticleInput } from 'src/app/shared/model/articleInput.model';
 
 @Component({
   selector: 'app-create-article',
