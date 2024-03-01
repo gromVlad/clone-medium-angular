@@ -23,6 +23,8 @@ import { createArticleReducer } from './features/createArticle/store/reducers';
 import { UpdateCurrentUserEffect } from './features/auth/store/effects/updateCurrentUser.effect';
 import { settingsReducers } from './features/settings/store/reducers';
 import { AddToFavoritesEffect } from './features/addToFavorites/store/effects/addToFavorites.effect';
+import { GetUserProfileEffect } from './features/userProfile/store/effects/getUserProfile.effect';
+import { userProfileReducer } from './features/userProfile/store/reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -35,6 +37,7 @@ export const appConfig: ApplicationConfig = {
       article: articleReducer,
       createArticle: createArticleReducer,
       settings: settingsReducers,
+      userProfile: userProfileReducer,
     }),
     provideStoreDevtools({ maxAge: 20, logOnly: !isDevMode() }),
     provideEffects(
@@ -47,7 +50,8 @@ export const appConfig: ApplicationConfig = {
       DeleteArticleEffect,
       CreateArticleEffect,
       UpdateCurrentUserEffect,
-      AddToFavoritesEffect
+      AddToFavoritesEffect,
+      GetUserProfileEffect
     ),
     provideHttpClient(withInterceptors([AuthInterceptor])),
     provideRouterStore(),

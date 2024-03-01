@@ -2,6 +2,20 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'profiles/:slug',
+    loadComponent: () =>
+      import('./features/userProfile/component/userProfile.component').then(
+        (m) => m.UserProfileComponent
+      ),
+  },
+  {
+    path: 'profiles/:slug/favorites',
+    loadComponent: () =>
+      import('./features/userProfile/component/userProfile.component').then(
+        (m) => m.UserProfileComponent
+      ),
+  },
+  {
     path: 'settings',
     loadComponent: () =>
       import('./features/settings/component/settings.component').then(

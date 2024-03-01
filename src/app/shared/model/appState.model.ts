@@ -4,6 +4,7 @@ import { IPopularTagsState } from "src/app/features/popular-tags/module/popularT
 import { IArticleState } from "src/app/features/article/model/articleState.model";
 import { ICreateArticleState } from "src/app/features/createArticle/model/createArticleState.model";
 import { ISettingsState } from "src/app/features/settings/types/settingsState.model";
+import { IUserProfileState } from "src/app/features/userProfile/model/userProfileState.model";
 
 export interface IAppState {
   auth: IAuthState;
@@ -12,4 +13,5 @@ export interface IAppState {
   article: IArticleState;
   createArticle: ICreateArticleState;
   settings: ISettingsState;
+  userProfile: IUserProfileState;
 }

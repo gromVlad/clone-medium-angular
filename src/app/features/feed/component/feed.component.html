@@ -4,7 +4,7 @@
   >Some error happened...</app-error-message
 >
 <div *ngIf="(feed$ | async)?.articles?.length === 0">
-  <h2>Feed empty</h2>
+  <p class="no-articles">No articles are here... yet.</p>
 </div>
 
 <div *ngIf="feed$ | async">
