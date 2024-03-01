@@ -22,6 +22,7 @@ import { CreateArticleEffect } from './features/createArticle/store/effects/crea
 import { createArticleReducer } from './features/createArticle/store/reducers';
 import { UpdateCurrentUserEffect } from './features/auth/store/effects/updateCurrentUser.effect';
 import { settingsReducers } from './features/settings/store/reducers';
+import { AddToFavoritesEffect } from './features/addToFavorites/store/effects/addToFavorites.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -45,7 +46,8 @@ export const appConfig: ApplicationConfig = {
       GetArticleEffect,
       DeleteArticleEffect,
       CreateArticleEffect,
-      UpdateCurrentUserEffect
+      UpdateCurrentUserEffect,
+      AddToFavoritesEffect
     ),
     provideHttpClient(withInterceptors([AuthInterceptor])),
     provideRouterStore(),

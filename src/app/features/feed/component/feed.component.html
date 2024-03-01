@@ -24,7 +24,13 @@
           article.createdAt | date : "MMM d, yyyy"
         }}</span>
       </div>
-      <div class="add-favorites">ADD TO FAVORITES</div>
+      <div class="add-favorites">
+        <app-add-to-favorites
+          [isFavorited]="article.favorited"
+          [articleSlug]="article.slug"
+          [favoritesCount]="article.favoritesCount"
+        />
+      </div>
     </div>
     <div  class="article-link">
       <h1>

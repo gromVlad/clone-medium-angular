@@ -1,0 +1,14 @@
+<button
+  (click)="handleLike()"
+  [ngClass]="{
+    btn: true,
+    'btn-sm': true,
+    'btn-primary': isFavorited,
+    'btn-outline-primary': !isFavorited
+  }"
+>
+    <div class="img">
+      <img src="assets/favorite.svg" />
+    </div>
+    <p>{{ favoritesCount }}</p>
+</button>

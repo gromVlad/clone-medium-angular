@@ -1,0 +1,40 @@
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-primary {
+  background-color: #085fbd;
+  color: #fff;
+}
+
+.btn-outline-primary {
+  background-color: #333;
+  color: #fff;
+}
+
+.img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+}

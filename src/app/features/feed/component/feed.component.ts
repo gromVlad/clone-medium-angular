@@ -14,6 +14,7 @@ import { PaginationComponent } from 'src/app/shared/components/pagination/pagina
 import { UtilsService } from 'src/app/shared/utils/utils.service';
 import { TagListComponent } from 'src/app/shared/components/tag-list/tag-list.component';
 import { getPopularTagsAction } from '../../popular-tags/store/actions/getPopularTags.action';
+import { AddToFavoriteComponent } from '../../addToFavorites/component/addToFavorites.component';
 
 @Component({
   selector: 'app-feed',
@@ -25,6 +26,7 @@ import { getPopularTagsAction } from '../../popular-tags/store/actions/getPopula
     LoadingComponent,
     PaginationComponent,
     TagListComponent,
+    AddToFavoriteComponent
   ],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
@@ -45,7 +47,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   baseUrl!: string;
   queryParamsSubscription!: Subscription;
   currentPage!: number;
-  wordMaxLenght = "..."
+  wordMaxLenght = '...';
 
   ngOnInit(): void {
     this.initializeValues();
@@ -57,7 +59,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
       !changes['apiUrlProps'].firstChange &&
       changes['apiUrlProps'].currentValue !==
         changes['apiUrlProps'].previousValue;
-    if (apiChange){
+    if (apiChange) {
       this.fetchFeed();
     }
   }
