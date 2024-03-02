@@ -1,1 +1,0 @@
-import{bc as e,cc as o}from"./chunk-MAJDB3HN.js";var r={GET_USER_PROFILE:"[User Profile] Get user profile",GET_USER_PROFILE_SUCCESS:"[User Profile] Get user profile success",GET_USER_PROFILE_FAILURE:"[User Profile] Get user profile failure"};var i=e(r.GET_USER_PROFILE,o()),U=e(r.GET_USER_PROFILE_SUCCESS,o()),_=e(r.GET_USER_PROFILE_FAILURE);export{i as a,U as b,_ as c};

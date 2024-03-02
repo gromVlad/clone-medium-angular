@@ -1,1 +1,0 @@
-import{bc as e,cc as t}from"./chunk-MAJDB3HN.js";var r={CREATE_ARTICLE:"[Create article] Create Article",CREATE_ARTICLE_SUCCESS:"[Create article] Create Article success",CREATE_ARTICLE_FAILURE:"[Create article] Create Article failure"};var E=e(r.CREATE_ARTICLE,t()),i=e(r.CREATE_ARTICLE_SUCCESS,t()),o=e(r.CREATE_ARTICLE_FAILURE,t());export{E as a,i as b,o as c};
